@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CHRL STDIO</title>
+  <link rel="stylesheet" href="style.css" />
+  <script>
+    if (localStorage.getItem('theme') === 'dark') {
+      document.documentElement.classList.add('dark');
+    }
+  </script>
+</head>
+
+<body>
+
+  <!-- ═══════════════════════════════
+       INTRO
+  ═══════════════════════════════ -->
+  <div id="intro">
+    <p id="intro-text">
+      <span class="il" style="--i:0">C</span><span class="il" style="--i:1">H</span><span class="il"
+        style="--i:2">R</span><span class="il" style="--i:3">L</span><span class="il il-gap"></span><span class="il"
+        style="--i:4">S</span><span class="il" style="--i:5">T</span><span class="il" style="--i:6">U</span><span
+        class="il" style="--i:7">D</span><span class="il" style="--i:8">I</span><span class="il" style="--i:9">O</span>
+    </p>
+  </div>
+
+
+  <!-- ═══════════════════════════════
+       MAIN CANVAS
+  ═══════════════════════════════ -->
+  <main id="canvas">
+
+    <!-- TOP-LEFT: Orb + Wordmark (single flex row) -->
+    <div id="top-left">
+      <a href="#" id="orb" aria-label="Home"></a>
+      <div id="wordmark">
+        <span class="wm-chrl">CHRL</span>
+        <span class="wm-stdio">STDIO</span>
+      </div>
+    </div>
+
+    <!-- TOP-CENTER: Navigation -->
+    <nav id="top-nav">
+      <a href="index.html" class="nav-item"><span class="nav-inner"
+          style="letter-spacing: 0.22em; transform: translateX(2px);">Home</span></a>
+      <a href="#hub" class="nav-item"><span class="nav-inner">Work</span></a>
+      <a href="about.html" class="nav-item"><span class="nav-inner">About</span></a>
+      <a href="contact.html" class="nav-item"><span class="nav-inner">Contact</span></a>
+    </nav>
+    <button id="theme-toggle" class="magnetic" aria-label="Toggle Dark Theme">
+      <div class="toggle-circle"></div>
+    </button>
+
+    <!-- CENTER: About Hero Focus -->
+    <div id="hero-about" class="magnetic">
+      <div class="hero-typewriter-wrap">
+        <!-- Single inline sentence: "Hey, this is [typed text]|" -->
+        <div class="hero-sentence-row" id="hero-sentence-row">
+          <span class="hero-static-label" id="hero-static-label">Hey, this is </span>
+          <span class="hero-typewriter-text" id="hero-typewriter-text"></span>
+          <span class="hero-cursor" id="hero-cursor" aria-hidden="true">|</span>
+        </div>
+        <!-- Final state: shown after sequence completes -->
+        <div class="hero-final" id="hero-final" aria-hidden="true">
+          <p class="hero-final-text">
+            Hey, wanna&nbsp;<a href="about.html" class="hero-know-more" id="hero-know-more">know more</a>?
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- BOTTOM-CENTER: Scroll Indicator -->
+    <div id="scroll-indicator">
+      <div class="scroll-line"></div>
+    </div>
+
+
+
+    <!-- BOTTOM: Split type -->
+    <div id="studio-left">CHRL</div>
+    <div id="studio-right">STUDIO</div>
+
+  </main>
+
+  <!-- ═══════════════════════════════
+       SCROLL SEQUENCE
+  ═══════════════════════════════ -->
+  <section id="scroll-sequence">
+    <div class="scroll-lock">
+      <div class="seq-text" id="seq-1">Create with passion</div>
+      <div class="seq-text" id="seq-2">Design with creativity</div>
+      <div class="seq-text" id="seq-3">Code with precision</div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════
+       GIANT CTA
+  ═══════════════════════════════ -->
+  <section id="work-cta">
+    <a href="graphic-design.html" id="giant-btn" class="magnetic scroll-reveal">VIEW MY WORK</a>
+  </section>
+
+  <!-- ═══════════════════════════════
+       HUB PANELS
+  ═══════════════════════════════ -->
+  <section id="hub">
+    <div class="hub-panels">
+
+      <!-- Panel 1 -->
+      <a href="graphic-design.html" class="hub-panel" data-index="01">
+        <div class="hub-panel__bg"></div>
+        <div class="hub-panel__inner">
+          <span class="hub-panel__index">01</span>
+          <div class="hub-panel__text">
+            <h2 class="hub-panel__title">Graphic Design</h2>
+            <p class="hub-panel__sub">Visual identities, typography &amp; brand systems.</p>
+          </div>
+          <span class="hub-panel__arrow">&#8599;</span>
+        </div>
+      </a>
+
+      <!-- Panel 2 -->
+      <a href="dev-projects.html" class="hub-panel" data-index="02">
+        <div class="hub-panel__bg"></div>
+        <div class="hub-panel__inner">
+          <span class="hub-panel__index">02</span>
+          <div class="hub-panel__text">
+            <h2 class="hub-panel__title">Development</h2>
+            <p class="hub-panel__sub">Interactive webs, apps &amp; engineering builds.</p>
+          </div>
+          <span class="hub-panel__arrow">&#8599;</span>
+        </div>
+      </a>
+
+      <!-- Panel 3 -->
+      <a href="personal-projects.html" class="hub-panel" data-index="03">
+        <div class="hub-panel__bg"></div>
+        <div class="hub-panel__inner">
+          <span class="hub-panel__index">03</span>
+          <div class="hub-panel__text">
+            <h2 class="hub-panel__title">Personal Projects</h2>
+            <p class="hub-panel__sub">Creative experiments, ideas &amp; side explorations.</p>
+          </div>
+          <span class="hub-panel__arrow">&#8599;</span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════
+       ABOUT ME (Anchor target for hero link)
+  ═══════════════════════════════ -->
+  <section id="about-me">
+    <div class="page-content">
+      <p class="about-text scroll-reveal">
+        I'm Islam Mihoub — CHRL — a CS student from Algeria building things at the intersection of code and craft.
+      </p>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

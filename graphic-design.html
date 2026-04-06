@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Graphic Design — CHRL STDIO</title>
+  <link rel="stylesheet" href="style.css" />
+  <script>
+    if (localStorage.getItem('theme') === 'dark') {
+      document.documentElement.classList.add('dark');
+    }
+  </script>
+</head>
+<body>
+
+  <!-- INTRO -->
+  <div id="intro">
+    <p id="intro-text">
+      <span class="il" style="--i:0">C</span><span class="il" style="--i:1">H</span><span class="il" style="--i:2">R</span><span class="il" style="--i:3">L</span><span class="il il-gap"></span><span class="il" style="--i:4">S</span><span class="il" style="--i:5">T</span><span class="il" style="--i:6">U</span><span class="il" style="--i:7">D</span><span class="il" style="--i:8">I</span><span class="il" style="--i:9">O</span>
+    </p>
+  </div>
+
+  <main id="canvas" class="subpage">
+    
+    <!-- TOP-LEFT: Orb + Wordmark -->
+    <div id="top-left" onclick="window.location.href='index.html'">
+      <a href="index.html" id="orb" aria-label="Home"></a>
+      <div id="wordmark">
+        <span class="wm-chrl">CHRL</span>
+        <span class="wm-stdio">STDIO</span>
+      </div>
+    </div>
+
+    <!-- TOP-CENTER: Navigation -->
+    <nav id="top-nav">
+      <a href="index.html" class="nav-item"><span class="nav-inner">Home</span></a>
+      <a href="index.html#hub" class="nav-item"><span class="nav-inner" style="letter-spacing: 0.22em; transform: translateX(2px);">Work</span></a>
+      <a href="about.html" class="nav-item"><span class="nav-inner">About</span></a>
+      <a href="contact.html" class="nav-item"><span class="nav-inner">Contact</span></a>
+    </nav>
+    <button id="theme-toggle" class="magnetic" aria-label="Toggle Dark Theme">
+      <div class="toggle-circle"></div>
+    </button>
+
+    <!-- CONTENT -->
+    <section class="page-content">
+      <h1 class="section-title">Graphic Design</h1>
+      <div class="project-grid">
+        
+        <div class="project-item">
+          <div class="project-img" style="aspect-ratio: 3/4;"></div>
+          <div class="project-meta">
+            <span class="card-title">Brand Identity</span>
+            <span class="card-desc">2026</span>
+          </div>
+        </div>
+
+        <div class="project-item" style="margin-top: 80px;">
+          <div class="project-img" style="aspect-ratio: 4/5;"></div>
+          <div class="project-meta">
+            <span class="card-title">Poster Series</span>
+            <span class="card-desc">2025</span>
+          </div>
+        </div>
+
+        <div class="project-item">
+          <div class="project-img" style="aspect-ratio: 16/10;"></div>
+          <div class="project-meta">
+            <span class="card-title">Exhibition</span>
+            <span class="card-desc">2025</span>
+          </div>
+        </div>
+
+        <div class="project-item" style="margin-top: 40px;">
+          <div class="project-img" style="aspect-ratio: 1/1;"></div>
+          <div class="project-meta">
+            <span class="card-title">Typography Exp</span>
+            <span class="card-desc">2024</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

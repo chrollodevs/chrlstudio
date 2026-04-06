@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — CHRL STDIO</title>
+  <link rel="stylesheet" href="style.css" />
+  <script>
+    if (localStorage.getItem('theme') === 'dark') {
+      document.documentElement.classList.add('dark');
+    }
+  </script>
+</head>
+<body>
+
+  <!-- INTRO -->
+  <div id="intro">
+    <p id="intro-text">
+      <span class="il" style="--i:0">C</span><span class="il" style="--i:1">H</span><span class="il" style="--i:2">R</span><span class="il" style="--i:3">L</span><span class="il il-gap"></span><span class="il" style="--i:4">S</span><span class="il" style="--i:5">T</span><span class="il" style="--i:6">U</span><span class="il" style="--i:7">D</span><span class="il" style="--i:8">I</span><span class="il" style="--i:9">O</span>
+    </p>
+  </div>
+
+  <main id="canvas" class="subpage">
+    
+    <!-- TOP-LEFT: Orb + Wordmark -->
+    <div id="top-left" onclick="window.location.href='index.html'">
+      <a href="index.html" id="orb" aria-label="Home"></a>
+      <div id="wordmark">
+        <span class="wm-chrl">CHRL</span>
+        <span class="wm-stdio">STDIO</span>
+      </div>
+    </div>
+
+    <!-- TOP-CENTER: Navigation -->
+    <nav id="top-nav">
+      <a href="index.html" class="nav-item"><span class="nav-inner">Home</span></a>
+      <a href="index.html#hub" class="nav-item"><span class="nav-inner">Work</span></a>
+      <a href="about.html" class="nav-item"><span class="nav-inner" style="letter-spacing: 0.22em; transform: translateX(2px);">About</span></a>
+      <a href="contact.html" class="nav-item"><span class="nav-inner">Contact</span></a>
+    </nav>
+    <button id="theme-toggle" class="magnetic" aria-label="Toggle Dark Theme">
+      <div class="toggle-circle"></div>
+    </button>
+
+    <!-- CONTENT -->
+    <section class="page-content">
+      
+      <div class="about-hero scroll-reveal">
+        <h1 class="section-title">Islam Mihoub</h1>
+        <p class="about-intro-text">
+          A Computer Science student & Creative Developer crafting digital experiences with technical precision and design intentionality.
+        </p>
+      </div>
+
+      <div class="about-content-grid">
+        
+        <!-- Identity -->
+        <div class="about-card scroll-reveal">
+          <span class="about-section-label">Identity</span>
+          <h3>Technical Mind, Creative Soul</h3>
+          <p>
+            Based in Algeria, I bridge the gap between rigorous engineering and expressive design. My background in Computer Science provides the foundation for building efficient, scalable systems, while my passion for visual arts drives me to create interfaces that feel alive.
+          </p>
+        </div>
+
+        <!-- Skills/Tools -->
+        <div class="about-card scroll-reveal">
+          <span class="about-section-label">Expertise</span>
+          <h3>Digital Craft</h3>
+          <p>
+            I specialize in building modern web applications where performance meets aesthetics.
+          </p>
+          <div class="skills-list">
+            <span class="skill-tag">Front-end Dev</span>
+            <span class="skill-tag">UI/UX Design</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">Graphic Design</span>
+            <span class="skill-tag">System Architecture</span>
+          </div>
+        </div>
+
+        <!-- Philosophy -->
+        <div class="about-card scroll-reveal" style="grid-column: 1 / -1;">
+          <span class="about-section-label">Philosophy</span>
+          <h3>Complexity through Simplicity</h3>
+          <p>
+            I believe that the most powerful solutions are those that hide their complexity behind intuitive interaction. Whether it's optimizing a build script or refining a typeface, my goal is always the same: to create work that is as functional as it is beautiful. I work hard, think fast, and optimize everything I can.
+          </p>
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
