@@ -21,9 +21,9 @@
   </div>
 
   <main id="canvas" class="subpage">
-    
+
     <!-- TOP-LEFT: Orb + Wordmark -->
-    <div id="top-left" onclick="window.location.href='index.html'">
+    <div id="top-left">
       <a href="index.html" id="orb" aria-label="Home"></a>
       <div id="wordmark">
         <span class="wm-chrl">CHRL</span>
@@ -34,7 +34,7 @@
     <!-- TOP-CENTER: Navigation -->
     <nav id="top-nav">
       <a href="index.html" class="nav-item"><span class="nav-inner">Home</span></a>
-      <a href="index.html#hub" class="nav-item"><span class="nav-inner" style="letter-spacing: 0.22em; transform: translateX(2px);">Work</span></a>
+      <a href="index.html#hub" class="nav-item" data-nav-scroll="#hub"><span class="nav-inner">Work</span></a>
       <a href="about.html" class="nav-item"><span class="nav-inner">About</span></a>
       <a href="contact.html" class="nav-item"><span class="nav-inner">Contact</span></a>
     </nav>
@@ -45,45 +45,207 @@
     <!-- CONTENT -->
     <section class="page-content">
       <h1 class="section-title">Graphic Design</h1>
-      <div class="project-grid">
-        
-        <div class="project-item">
-          <div class="project-img" style="aspect-ratio: 3/4;"></div>
-          <div class="project-meta">
-            <span class="card-title">Brand Identity</span>
-            <span class="card-desc">2026</span>
-          </div>
-        </div>
-
-        <div class="project-item" style="margin-top: 80px;">
-          <div class="project-img" style="aspect-ratio: 4/5;"></div>
-          <div class="project-meta">
-            <span class="card-title">Poster Series</span>
-            <span class="card-desc">2025</span>
-          </div>
-        </div>
-
-        <div class="project-item">
-          <div class="project-img" style="aspect-ratio: 16/10;"></div>
-          <div class="project-meta">
-            <span class="card-title">Exhibition</span>
-            <span class="card-desc">2025</span>
-          </div>
-        </div>
-
-        <div class="project-item" style="margin-top: 40px;">
-          <div class="project-img" style="aspect-ratio: 1/1;"></div>
-          <div class="project-meta">
-            <span class="card-title">Typography Exp</span>
-            <span class="card-desc">2024</span>
-          </div>
-        </div>
-
+      <p class="section-subtitle">Visual identities, typography &amp; brand systems.</p>
+      <div class="project-grid" id="project-grid">
+        <!-- Projects injected dynamically -->
       </div>
     </section>
 
   </main>
 
+  <!-- MODAL GALLERY -->
+  <div id="modal-gallery" class="modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-backdrop"></div>
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Close gallery">&times;</button>
+      <div class="modal-header">
+        <h2 class="modal-title"></h2>
+        <span class="modal-counter"></span>
+      </div>
+      <div class="modal-body">
+        <button class="modal-nav modal-prev" aria-label="Previous image">&#8249;</button>
+        <div class="modal-image-container">
+          <img class="modal-image" src="" alt="" />
+        </div>
+        <button class="modal-nav modal-next" aria-label="Next image">&#8250;</button>
+      </div>
+      <div class="modal-thumbnails"></div>
+    </div>
+  </div>
+
   <script src="script.js"></script>
+  <script>
+    (function() {
+      const PROJECTS_DIR = 'graphic/mingle';
+      const grid = document.getElementById('project-grid');
+      const modal = document.getElementById('modal-gallery');
+      const modalImg = modal.querySelector('.modal-image');
+      const modalTitle = modal.querySelector('.modal-title');
+      const modalCounter = modal.querySelector('.modal-counter');
+      const modalThumbnails = modal.querySelector('.modal-thumbnails');
+      const modalPrev = modal.querySelector('.modal-prev');
+      const modalNext = modal.querySelector('.modal-next');
+      const modalClose = modal.querySelector('.modal-close');
+      const modalBackdrop = modal.querySelector('.modal-backdrop');
+
+      let currentProject = null;
+      let currentIndex = 0;
+      let currentImages = [];
+
+      if (!grid) return;
+
+      // Build image list for a project
+      function getProjectImages(project) {
+        const images = [];
+        const { pattern, ext } = project;
+
+        // Try numbered pattern: name1.jpg, name2.jpg, etc.
+        for (let i = 1; i <= 50; i++) {
+          images.push(`${PROJECTS_DIR}/${project.name}/${pattern}${i}.${ext}`);
+        }
+
+        // Also check for name.jpg (no number)
+        images.unshift(`${PROJECTS_DIR}/${project.name}/${project.name}.${ext}`);
+
+        return images;
+      }
+
+      // Preload image to check if it exists
+      function imageExists(url) {
+        return new Promise(resolve => {
+          const img = new Image();
+          img.onload = () => resolve(true);
+          img.onerror = () => resolve(false);
+          img.src = url;
+        });
+      }
+
+      // Filter to only existing images
+      async function filterExistingImages(urls) {
+        const results = await Promise.all(urls.map(url =>
+          imageExists(url).then(exists => exists ? url : null)
+        ));
+        return results.filter(Boolean);
+      }
+
+      // Open modal with project images
+      async function openModal(project) {
+        currentProject = project;
+        const allImages = getProjectImages(project);
+        currentImages = await filterExistingImages(allImages);
+
+        if (currentImages.length === 0) return;
+
+        currentIndex = 0;
+        modalTitle.textContent = project.label;
+        updateModalImage();
+        renderThumbnails();
+
+        modal.classList.add('active');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      }
+
+      // Update modal image and counter
+      function updateModalImage() {
+        if (currentImages.length === 0) return;
+        modalImg.src = currentImages[currentIndex];
+        modalImg.alt = `${currentProject.label} - Image ${currentIndex + 1}`;
+        modalCounter.textContent = `${currentIndex + 1} / ${currentImages.length}`;
+
+        // Update thumbnail active state
+        modalThumbnails.querySelectorAll('.thumbnail').forEach((thumb, idx) => {
+          thumb.classList.toggle('active', idx === currentIndex);
+        });
+
+        // Hide nav buttons at edges
+        modalPrev.style.visibility = currentIndex === 0 ? 'hidden' : 'visible';
+        modalNext.style.visibility = currentIndex === currentImages.length - 1 ? 'hidden' : 'visible';
+      }
+
+      // Render thumbnail strip
+      function renderThumbnails() {
+        modalThumbnails.innerHTML = currentImages.map((src, idx) =>
+          `<button class="thumbnail ${idx === 0 ? 'active' : ''}" data-idx="${idx}" aria-label="View image ${idx + 1}">
+            <img src="${src}" alt="" loading="lazy" />
+          </button>`
+        ).join('');
+
+        modalThumbnails.querySelectorAll('.thumbnail').forEach(thumb => {
+          thumb.addEventListener('click', () => {
+            currentIndex = parseInt(thumb.dataset.idx);
+            updateModalImage();
+          });
+        });
+      }
+
+      // Close modal
+      function closeModal() {
+        modal.classList.remove('active');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        currentProject = null;
+        currentImages = [];
+      }
+
+      // Navigation
+      function prevImage() {
+        if (currentIndex > 0) {
+          currentIndex--;
+          updateModalImage();
+        }
+      }
+
+      function nextImage() {
+        if (currentIndex < currentImages.length - 1) {
+          currentIndex++;
+          updateModalImage();
+        }
+      }
+
+      // Event listeners
+      modalClose.addEventListener('click', closeModal);
+      modalBackdrop.addEventListener('click', closeModal);
+      modalPrev.addEventListener('click', prevImage);
+      modalNext.addEventListener('click', nextImage);
+
+      // Keyboard navigation
+      document.addEventListener('keydown', e => {
+        if (!modal.classList.contains('active')) return;
+        if (e.key === 'Escape') closeModal();
+        if (e.key === 'ArrowLeft') prevImage();
+        if (e.key === 'ArrowRight') nextImage();
+      });
+
+      // Load projects
+      fetch('graphic/projects.json')
+        .then(res => res.json())
+        .then(async projects => {
+          projects.forEach((project, idx) => {
+            const { pattern, ext } = project;
+            const teaserImg = `${PROJECTS_DIR}/${project.name}/${pattern}1.${ext}`;
+
+            const item = document.createElement('div');
+            item.className = 'project-item';
+            if (idx % 2 !== 0) item.style.marginTop = '80px';
+
+            item.innerHTML = `
+              <img class="project-img" src="${teaserImg}" alt="${project.label}" loading="lazy" />
+              <div class="project-meta">
+                <span class="card-title">${project.label}</span>
+                <span class="card-desc">${project.year}</span>
+              </div>
+            `;
+
+            // Click to open modal
+            item.addEventListener('click', () => openModal(project));
+            item.style.cursor = 'pointer';
+
+            grid.appendChild(item);
+          });
+        })
+        .catch(err => console.error('Failed to load projects:', err));
+    })();
+  </script>
 </body>
 </html>

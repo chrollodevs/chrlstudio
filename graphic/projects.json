@@ -1,0 +1,9 @@
+[
+  { "name": "amelia", "label": "Amelia", "year": "2026", "pattern": "amelia", "ext": "jpg" },
+  { "name": "basedorigin", "label": "Based Origin", "year": "2025", "pattern": "basedorigin", "ext": "jpg" },
+  { "name": "etherialwick", "label": "Etherial Wick", "year": "2025", "pattern": "eth", "ext": "jpg" },
+  { "name": "gotchew", "label": "Gotchew", "year": "2025", "pattern": "gotchew", "ext": "jpg" },
+  { "name": "izem", "label": "Izem", "year": "2024", "pattern": "izem", "ext": "jpg" },
+  { "name": "orion", "label": "Orion", "year": "2024", "pattern": "orion", "ext": "jpg" },
+  { "name": "zing", "label": "Zing", "year": "2024", "pattern": "zing", "ext": "jpg" }
+]

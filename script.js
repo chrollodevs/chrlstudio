@@ -235,8 +235,10 @@
   links.forEach(link => {
     link.addEventListener('click', e => {
       const href = link.getAttribute('href');
-      // Intercept purely internal routing
-      if (href && href !== '#' && !href.startsWith('http') && !href.startsWith('mailto')) {
+      // Skip anchor links (smooth scroll handled elsewhere)
+      if (href && href.startsWith('#')) return;
+      // Intercept purely internal routing (not external, not mailto)
+      if (href && !href.startsWith('http') && !href.startsWith('mailto')) {
         e.preventDefault();
         document.body.style.transition = 'opacity 0.4s ease';
         document.body.style.opacity = '0';
@@ -247,6 +249,18 @@
     });
   });
 
+
+  /* ── SMOOTH SCROLL FOR WORK NAV ───────────────────────── */
+  document.querySelectorAll('[data-nav-scroll]').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const targetId = link.getAttribute('data-nav-scroll');
+      const target = document.querySelector(targetId);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
 
   /* ── TOP-LEFT HOVER ──────────────────────────────────── */
   if (topLeft) {
