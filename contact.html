@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact — CHRL STDIO</title>
+  <meta name="description" content="Get in touch with Islam Mihoub — CHRL. Let's build something together." />
   <link rel="stylesheet" href="style.css" />
   <script>
     if (localStorage.getItem('theme') === 'dark') {
@@ -21,7 +22,7 @@
   </div>
 
   <main id="canvas" class="subpage">
-    
+
     <!-- TOP-LEFT: Orb + Wordmark -->
     <div id="top-left" onclick="window.location.href='index.html'">
       <a href="index.html" id="orb" aria-label="Home"></a>
@@ -36,36 +37,64 @@
       <a href="index.html" class="nav-item"><span class="nav-inner">Home</span></a>
       <a href="index.html#hub" class="nav-item"><span class="nav-inner">Work</span></a>
       <a href="about.html" class="nav-item"><span class="nav-inner">About</span></a>
-      <a href="contact.html" class="nav-item"><span class="nav-inner" style="letter-spacing: 0.22em; transform: translateX(2px);">Contact</span></a>
+      <a href="contact.html" class="nav-item"><span class="nav-inner">Contact</span></a>
     </nav>
     <button id="theme-toggle" class="magnetic" aria-label="Toggle Dark Theme">
       <div class="toggle-circle"></div>
     </button>
 
-    <!-- CONTENT -->
-    <section class="page-content">
-      <div class="contact-hero">
-        <h1 class="section-title">Let's Talk</h1>
-        <p class="contact-subtitle">Have a project in mind? Let's create something amazing together.</p>
+    <!-- CONTACT CONTENT -->
+    <div class="contact-page-wrap">
+
+      <!-- Headline block — 3 editorial lines -->
+      <div class="contact-headline-block scroll-reveal">
+        <span class="contact-eyebrow">Get in touch</span>
+        <h1 class="contact-headline">
+          Good work starts<br>
+          with a<br>
+          <em>conversation.</em>
+        </h1>
+        <p class="contact-subline">
+          Open to freelance, collaboration, and full-time opportunities.
+          Reach out and let's build something worth remembering.
+        </p>
       </div>
-      <div class="contact-grid">
-        <a href="mailto:islam.mihoub@univ-bba.dz" class="contact-card">
-          <span class="contact-icon">&#9993;</span>
-          <span class="contact-label">Email</span>
-          <span class="contact-value">islam.mihoub@univ-bba.dz</span>
-        </a>
-        <a href="https://github.com/chrollodevs" target="_blank" rel="noopener" class="contact-card">
-          <span class="contact-icon">&#128187;</span>
-          <span class="contact-label">GitHub</span>
-          <span class="contact-value">@chrollodevs</span>
-        </a>
-        <a href="https://www.instagram.com/chrl_studio/" target="_blank" rel="noopener" class="contact-card">
-          <span class="contact-icon">&#128247;</span>
-          <span class="contact-label">Instagram</span>
-          <span class="contact-value">@chrl_studio</span>
-        </a>
+
+      <!-- Horizontal-rule sections -->
+      <div class="contact-sections" id="contact-sections">
+
+        <div class="contact-section-row scroll-reveal">
+          <span class="contact-section-label">Email</span>
+          <div class="contact-section-links">
+            <a href="mailto:islam.mihoub@univ-bba.dz" class="contact-link-row">
+              islam.mihoub@univ-bba.dz
+              <span class="contact-link-arrow" aria-hidden="true">&#8599;</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-section-row scroll-reveal">
+          <span class="contact-section-label">Code</span>
+          <div class="contact-section-links">
+            <a href="https://github.com/chrollodevs" target="_blank" rel="noopener" class="contact-link-row">
+              GitHub &mdash; @chrollodevs
+              <span class="contact-link-arrow" aria-hidden="true">&#8599;</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-section-row scroll-reveal">
+          <span class="contact-section-label">Visual</span>
+          <div class="contact-section-links">
+            <a href="https://www.instagram.com/chrl_studio/" target="_blank" rel="noopener" class="contact-link-row">
+              Instagram &mdash; @chrl_studio
+              <span class="contact-link-arrow" aria-hidden="true">&#8599;</span>
+            </a>
+          </div>
+        </div>
+
       </div>
-    </section>
+    </div>
 
   </main>
 
