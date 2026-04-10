@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,17 +12,21 @@
     }
   </script>
 </head>
+
 <body>
 
   <!-- INTRO -->
   <div id="intro">
     <p id="intro-text">
-      <span class="il" style="--i:0">C</span><span class="il" style="--i:1">H</span><span class="il" style="--i:2">R</span><span class="il" style="--i:3">L</span><span class="il il-gap"></span><span class="il" style="--i:4">S</span><span class="il" style="--i:5">T</span><span class="il" style="--i:6">U</span><span class="il" style="--i:7">D</span><span class="il" style="--i:8">I</span><span class="il" style="--i:9">O</span>
+      <span class="il" style="--i:0">C</span><span class="il" style="--i:1">H</span><span class="il"
+        style="--i:2">R</span><span class="il" style="--i:3">L</span><span class="il il-gap"></span><span class="il"
+        style="--i:4">S</span><span class="il" style="--i:5">T</span><span class="il" style="--i:6">U</span><span
+        class="il" style="--i:7">D</span><span class="il" style="--i:8">I</span><span class="il" style="--i:9">O</span>
     </p>
   </div>
 
   <main id="canvas" class="subpage">
-    
+
     <!-- TOP-LEFT: Orb + Wordmark -->
     <div id="top-left" onclick="window.location.href='index.html'">
       <a href="index.html" id="orb" aria-label="Home"></a>
@@ -35,7 +40,8 @@
     <nav id="top-nav">
       <a href="index.html" class="nav-item"><span class="nav-inner">Home</span></a>
       <a href="index.html#hub" class="nav-item"><span class="nav-inner">Work</span></a>
-      <a href="about.html" class="nav-item"><span class="nav-inner" style="letter-spacing: 0.22em; transform: translateX(2px);">About</span></a>
+      <a href="about.html" class="nav-item"><span class="nav-inner"
+          style="letter-spacing: 0.22em; transform: translateX(2px);">About</span></a>
       <a href="contact.html" class="nav-item"><span class="nav-inner">Contact</span></a>
     </nav>
     <button id="theme-toggle" class="magnetic" aria-label="Toggle Dark Theme">
@@ -44,56 +50,82 @@
 
     <!-- CONTENT -->
     <section class="page-content">
-      
-      <div class="about-hero scroll-reveal">
-        <h1 class="section-title">Islam Mihoub</h1>
-        <p class="about-intro-text">
-          A Computer Science student & Creative Developer crafting digital experiences with technical precision and design intentionality.
-        </p>
-      </div>
+      <div class="folder-container" style="padding-top: 20px;">
+        <!-- The instruction label -->
+        <div class="folder-instruction">Click to open</div>
 
-      <div class="about-content-grid">
-        
-        <!-- Identity -->
-        <div class="about-card scroll-reveal">
-          <span class="about-section-label">Identity</span>
-          <h3>Technical Mind, Creative Soul</h3>
-          <p>
-            Based in Algeria, I bridge the gap between rigorous engineering and expressive design. My background in Computer Science provides the foundation for building efficient, scalable systems, while my passion for visual arts drives me to create interfaces that feel alive.
-          </p>
-        </div>
-
-        <!-- Skills/Tools -->
-        <div class="about-card scroll-reveal">
-          <span class="about-section-label">Expertise</span>
-          <h3>Digital Craft</h3>
-          <p>
-            I specialize in building modern web applications where performance meets aesthetics.
-          </p>
-          <div class="skills-list">
-            <span class="skill-tag">Front-end Dev</span>
-            <span class="skill-tag">UI/UX Design</span>
-            <span class="skill-tag">JavaScript</span>
-            <span class="skill-tag">Graphic Design</span>
-            <span class="skill-tag">System Architecture</span>
+        <!-- The trigger wrapper using 1400px perspective -->
+        <div class="folder-wrapper" id="folder-trigger" tabindex="0" role="button" aria-expanded="false" aria-label="Open about me folder">
+          
+          <!-- Back layer: Static base tray -->
+          <div class="folder-back">
+            <img src="aboutme/open.png" alt="Folder Base Tray" aria-hidden="true" draggable="false" />
           </div>
-        </div>
 
-        <!-- Philosophy -->
-        <div class="about-card scroll-reveal" style="grid-column: 1 / -1;">
-          <span class="about-section-label">Philosophy</span>
-          <h3>Complexity through Simplicity</h3>
-          <p>
-            I believe that the most powerful solutions are those that hide their complexity behind intuitive interaction. Whether it's optimizing a build script or refining a typeface, my goal is always the same: to create work that is as functional as it is beautiful. I work hard, think fast, and optimize everything I can.
-          </p>
-        </div>
+          <!-- Inner content layer: scrolls within the fixed layout constraints -->
+          <div class="folder-paper">
+            <div class="paper-content">
+              
+              <!-- Card 1: Identity -->
+              <div class="glass-panel">
+                <div class="about-section-label">IDENTITY</div>
+                <h3>Islam Mihoub / CHRL</h3>
+                <p>
+                  Computer Science student and digital builder from Algeria. I operate at the intersection of systems engineering and interface design. My core focus is building functional logic matched with uncompromising visual aesthetics.
+                </p>
+              </div>
 
+              <!-- Card 2: Thinking Style -->
+              <div class="glass-panel">
+                <div class="about-section-label">THINKING STYLE</div>
+                <h3>Architecture & Interfaces</h3>
+                <p>
+                  Good engineering requires scalable architecture; good design requires silent intuition. I treat code and graphics as a unified system, building out the backend logic while ensuring the frontend remains extremely sharp, minimal, and fast.
+                </p>
+              </div>
+
+              <!-- Card 3: Drives & Obsessions -->
+              <div class="glass-panel">
+                <div class="about-section-label">DRIVES & OBSESSIONS</div>
+                <h3>Systems & Performance</h3>
+                <p>
+                  Fascinated by AI, system integrations, and the mechanics of modern tooling. Outside of UI loops, I study the engineering behind military aviation and jets—drawn to machines strictly built for peak efficiency and pure performance.
+                </p>
+              </div>
+
+              <!-- Card 4: Human Side -->
+              <div class="glass-panel">
+                <div class="about-section-label">HUMAN SIDE</div>
+                <h3>Analog Environment</h3>
+                <p>
+                  Deeply invested in physical spaces. Hiking and exploring natural environments provide the baseline reset away from the IDE. I balance intense structural coding blocks with gaming and drawing to maintain visual creativity.
+                </p>
+              </div>
+
+              <!-- Card 5: Philosophy -->
+              <div class="glass-panel">
+                <div class="about-section-label">PHILOSOPHY</div>
+                <h3>Complexity Through Simplicity</h3>
+                <p>
+                  Create. Optimize relentlessly. Refine until the underlying complexity is totally invisible to the user. I believe digital work shouldn't just be functional—it should retain a core aesthetic cool factor that entirely separates it from generic templates.
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Front layer: Cover fades out instead of hinging open -->
+          <div class="folder-front">
+            <img src="aboutme/closed.png" alt="Closed Folder Cover" draggable="false" />
+          </div>
+
+        </div>
       </div>
-
     </section>
 
   </main>
 
   <script src="script.js"></script>
 </body>
+
 </html>

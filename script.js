@@ -246,6 +246,10 @@
         // Slight X parallax for depth
         let x = t * 18;
 
+        // Cinematic scaling for depth shift (pushes back/pulls forward depending on offset)
+        // Adjust scale so it slightly grows as it fades in, then shrinks/grows
+        let scale = 1 - (t * 0.08);
+
         // Cinematic blur
         let blur = (t * t) * 14;
 
@@ -253,7 +257,7 @@
         if (opacity > dustTargetOpacity) dustTargetOpacity = opacity;
 
         el.style.opacity = opacity.toFixed(3);
-        el.style.transform = `translate3d(${x.toFixed(2)}px, ${y.toFixed(2)}px, 0)`;
+        el.style.transform = `translate3d(${x.toFixed(2)}px, ${y.toFixed(2)}px, 0) scale(${scale.toFixed(3)})`;
         el.style.filter = `blur(${blur.toFixed(2)}px)`;
       }
 
@@ -289,16 +293,18 @@
 
     // Spawn a particle
     function spawn() {
+      // Create subtle varying depth values (z)
+      const z = Math.random() * 0.6 + 0.4; // 0.4 (large/front) up to 1.0 (small/back)
       return {
         x: Math.random() * W,
         y: Math.random() * H,
+        z: z, 
         vx: (Math.random() - 0.5) * 0.35,
         vy: (Math.random() - 0.5) * 0.22 - 0.08,  // slight upward drift
-        r: Math.random() * 1.6 + 0.4,
+        r: Math.random() * 2.2 + 0.6, // slightly larger base radius to accommodate scaling down
         // life: 0–1
         life: Math.random(),
         decay: Math.random() * 0.0018 + 0.0006,
-        // spawn near horizontal thirds
         zone: Math.random() * H,
       };
     }
@@ -339,11 +345,13 @@
         // Wind: slight horizontal curl near center
         const windX = Math.sin((p.y / H) * Math.PI + scrollProgress * 4) * 0.12;
 
-        p.x += p.vx + windX;
-        p.y += p.vy;
+        // Depth perspective logic: speed is inversely proportional to Z
+        const speedScale = 1 / p.z;
+        p.x += (p.vx + windX) * speedScale;
+        p.y += (p.vy) * speedScale;
         p.life -= p.decay;
 
-        if (p.life <= 0 || p.x < -10 || p.x > W + 10 || p.y < -10 || p.y > H + 10) {
+        if (p.life <= 0 || p.x < -20 || p.x > W + 20 || p.y < -20 || p.y > H + 20) {
           // respawn
           const np = spawn();
           np.x = Math.random() * W;
@@ -354,8 +362,10 @@
 
         const alpha = p.life * bandFactor * baseAlpha;
         const color = dark ? `255,255,255` : `0,0,0`;
+        const radius = p.r * speedScale; // Front particles are larger
+
         ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.arc(p.x, p.y, radius, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(${color},${alpha.toFixed(3)})`;
         ctx.fill();
       }
@@ -587,5 +597,32 @@
 
     if (seqEl) sectionIO.observe(seqEl);
   })();
+
+  /* ── ABOUT ME 3D FOLDER INTERACTION ── */
+  const folderTrigger = document.getElementById('folder-trigger');
+  if (folderTrigger) {
+    folderTrigger.addEventListener('click', () => {
+      // Toggle class that unlocks the CSS 3D folding and revealing
+      folderTrigger.classList.toggle('is-open');
+      const isOpen = folderTrigger.classList.contains('is-open');
+      folderTrigger.setAttribute('aria-expanded', isOpen);
+    });
+
+    // Support keyboard activation for accessibility
+    folderTrigger.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        folderTrigger.click();
+      }
+    });
+
+    // Provide generic lens feedback
+    folderTrigger.addEventListener('mouseenter', () => {
+      if (cursor) cursor.classList.add('lens-hover');
+    });
+    folderTrigger.addEventListener('mouseleave', () => {
+      if (cursor) cursor.classList.remove('lens-hover');
+    });
+  }
 
 })();
