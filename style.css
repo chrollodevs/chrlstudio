@@ -1,10 +1,10 @@
-/* ═══════════════════════════════════════════════════════
-   GRID TOKENS  —  every positional value derives from these
-═══════════════════════════════════════════════════════ */
+﻿/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+   GRID TOKENS  â€”  every positional value derives from these
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 :root {
   --font: "Helvetica Neue", Helvetica, Arial, sans-serif;
 
-  /* Spatial system – tighter than before, still generous */
+  /* Spatial system â€“ tighter than before, still generous */
   --g-edge: 104px;
   /* left / right margin                */
   --g-top: 72px;
@@ -29,13 +29,13 @@
   --nav-bg: rgba(245, 245, 245, 0.65);
   --glass-border: rgba(0, 0, 0, 0.06);
 
-  /* Aura system — driven by JS mouse + scroll tracking */
+  /* Aura system â€” driven by JS mouse + scroll tracking */
   --ax: 0;
-  /* normalised mouse X: -1 … 1 */
+  /* normalised mouse X: -1 â€¦ 1 */
   --ay: 0;
-  /* normalised mouse Y: -1 … 1 */
+  /* normalised mouse Y: -1 â€¦ 1 */
   --scroll-p: 0;
-  /* scroll progress 0 … 1  */
+  /* scroll progress 0 â€¦ 1  */
 }
 
 html.dark {
@@ -47,9 +47,9 @@ html.dark {
   --glass-border: rgba(255, 255, 255, 0.06);
 }
 
-/* ═══════════════════════════════════════════════════════
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
    RESET
-═══════════════════════════════════════════════════════ */
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 *,
 *::before,
 *::after {
@@ -79,13 +79,13 @@ button,
   /* Inherit hidden cursor on links */
 }
 
-/* ═══════════════════════════════════════════════════════
-   SCROLL SEQUENCE AURA — immersive neutral glow
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+   SCROLL SEQUENCE AURA â€” immersive neutral glow
    Scoped to: scroll-sequence (.scroll-lock) ONLY
-   Classes: html.in-seq → scroll-sequence is active
-═══════════════════════════════════════════════════════ */
+   Classes: html.in-seq â†’ scroll-sequence is active
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 
-/* ── Scroll-sequence aura ── (below dust canvas z:0, below seq-text z:1) */
+/* â”€â”€ Scroll-sequence aura â”€â”€ (below dust canvas z:0, below seq-text z:1) */
 .scroll-lock::before {
   content: '';
   position: absolute;
@@ -119,7 +119,7 @@ html:not(.dark).in-seq .scroll-lock::before {
   opacity: 0;
 }
 
-/* ── About section — clean, no aura (minimalist outside scroll-sequence) ── */
+/* â”€â”€ About section â€” clean, no aura (minimalist outside scroll-sequence) â”€â”€ */
 #about-me {
   position: relative;
   overflow: hidden;
@@ -140,9 +140,9 @@ html:not(.dark).in-seq .scroll-lock::before {
   }
 }
 
-/* ═══════════════════════════════════════════════════════
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
    CUSTOM CURSOR & AMBIENT
-═══════════════════════════════════════════════════════ */
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 #ambient-noise {
   position: fixed;
   inset: 0;
@@ -205,7 +205,7 @@ html:not(.dark).in-seq .scroll-lock::before {
   will-change: transform;
 }
 
-/* SCROLL REVEALS — depth-aware entrance with optional stagger via --rd */
+/* SCROLL REVEALS â€” depth-aware entrance with optional stagger via --rd */
 .scroll-reveal {
   opacity: 0;
   transform: translateY(28px) scale(0.993);
@@ -221,9 +221,9 @@ html:not(.dark).in-seq .scroll-lock::before {
 }
 
 
-/* ═══════════════════════════════════════════════════════
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
    INTRO
-═══════════════════════════════════════════════════════ */
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 #intro {
   position: fixed;
   inset: 0;
@@ -274,9 +274,9 @@ html:not(.dark).in-seq .scroll-lock::before {
 }
 
 
-/* ═══════════════════════════════════════════════════════
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
    MAIN CANVAS
-═══════════════════════════════════════════════════════ */
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 #canvas {
   position: relative;
   width: 100%;
@@ -293,7 +293,7 @@ html:not(.dark).in-seq .scroll-lock::before {
   height: auto;
   padding-top: calc(var(--g-top) + 80px);
   opacity: 1;
-  /* subpages are always visible — JS handles intro skip */
+  /* subpages are always visible â€” JS handles intro skip */
   overflow: visible;
 }
 
@@ -301,9 +301,9 @@ html:not(.dark).in-seq .scroll-lock::before {
   opacity: 1;
 }
 
-/* ═══════════════════════════════════════════════════════
-   CENTER  —  HERO TYPEWRITER
-═══════════════════════════════════════════════════════ */
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+   CENTER  â€”  HERO TYPEWRITER
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 #hero-about {
   position: absolute;
   top: 50%;
@@ -340,7 +340,7 @@ html:not(.dark).in-seq .scroll-lock::before {
   transform: translateY(10px);
 }
 
-/* "Hey, this is" — exact same size, just regular weight */
+/* "Hey, this is" â€” exact same size, just regular weight */
 .hero-static-label {
   font-size: clamp(1.8rem, 3vw, 2.6rem);
   font-weight: 400;
@@ -348,11 +348,11 @@ html:not(.dark).in-seq .scroll-lock::before {
   line-height: 1;
   color: var(--black);
   opacity: 0.82;
-  /* barely-there softness — not faded */
+  /* barely-there softness â€” not faded */
   white-space: nowrap;
 }
 
-/* The typed portion — same size, bolder to anchor attention */
+/* The typed portion â€” same size, bolder to anchor attention */
 .hero-typewriter-text {
   font-size: clamp(1.8rem, 3vw, 2.6rem);
   font-weight: 600;
@@ -362,7 +362,7 @@ html:not(.dark).in-seq .scroll-lock::before {
   white-space: nowrap;
 }
 
-/* Blinking cursor — matched to sentence size */
+/* Blinking cursor â€” matched to sentence size */
 .hero-cursor {
   font-size: clamp(1.8rem, 3vw, 2.6rem);
   font-weight: 300;
@@ -384,7 +384,7 @@ html:not(.dark).in-seq .scroll-lock::before {
   }
 }
 
-/* Final CTA state — hidden until JS adds .active */
+/* Final CTA state â€” hidden until JS adds .active */
 .hero-final {
   position: absolute;
   top: 0;
@@ -393,7 +393,7 @@ html:not(.dark).in-seq .scroll-lock::before {
   pointer-events: none;
   opacity: 0;
   transform: translateX(-50%) translateY(10px);
-  /* single declaration — no conflict */
+  /* single declaration â€” no conflict */
   transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
     transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -439,12 +439,12 @@ html:not(.dark).in-seq .scroll-lock::before {
 
 
 
-/* ═══════════════════════════════════════════════════════
-   TOP-LEFT  —  ORB (left) + WORDMARK (right)
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+   TOP-LEFT  â€”  ORB (left) + WORDMARK (right)
    Single flex row. Both elements share top: --g-top.
    The orb flex container has fixed height = cap-height of
    .wm-chrl so the orb never moves when STDIO opens.
-═══════════════════════════════════════════════════════ */
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 #top-left {
   position: absolute;
   top: 24px;
@@ -456,14 +456,14 @@ html:not(.dark).in-seq .scroll-lock::before {
   cursor: pointer;
 }
 
-/* ORB wrapper — locks height to one text line so it never
+/* ORB wrapper â€” locks height to one text line so it never
    shifts when the wordmark grows to two lines on hover. */
 #top-left::before {
   content: none;
   /* unused, gap only */
 }
 
-/* ── ORB ── */
+/* â”€â”€ ORB â”€â”€ */
 #orb {
   display: block;
   width: var(--orb-d);
@@ -471,7 +471,7 @@ html:not(.dark).in-seq .scroll-lock::before {
   border-radius: 50%;
   flex-shrink: 0;
   cursor: pointer;
-  /* Chromatic glow spin — pure box-shadow, zero children */
+  /* Chromatic glow spin â€” pure box-shadow, zero children */
   animation: orb-spin 3s linear infinite;
   transform: translate3d(var(--mx, 0px), var(--my, 0px), 0);
   transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
@@ -512,7 +512,7 @@ html:not(.dark).in-seq .scroll-lock::before {
   }
 }
 
-/* ── WORDMARK ── */
+/* â”€â”€ WORDMARK â”€â”€ */
 #wordmark {
   position: relative;
   display: flex;
@@ -561,10 +561,10 @@ html:not(.dark).in-seq .scroll-lock::before {
 }
 
 
-/* ═══════════════════════════════════════════════════════
-   TOP-CENTER  —  NAV
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+   TOP-CENTER  â€”  NAV
    Same top: --g-top. Horizontally centred.
-═══════════════════════════════════════════════════════ */
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 #top-nav {
   position: fixed;
   top: 24px;
@@ -621,7 +621,7 @@ html:not(.dark).in-seq .scroll-lock::before {
   }
 }
 
-/* THEME TOGGLE — fixed top-right, independent of nav pill */
+/* THEME TOGGLE â€” fixed top-right, independent of nav pill */
 #theme-toggle {
   position: fixed;
   top: 24px;
@@ -680,9 +680,9 @@ html.dark .toggle-circle {
 }
 
 
-/* ═══════════════════════════════════════════════════════
-   MID-RIGHT  —  DESCRIPTION
-═══════════════════════════════════════════════════════ */
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+   MID-RIGHT  â€”  DESCRIPTION
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 #desc {
   position: absolute;
   top: 50%;
@@ -701,19 +701,19 @@ html.dark .toggle-circle {
 }
 
 
-/* ═══════════════════════════════════════════════════════
-   BOTTOM-CENTER  —  SCROLL INDICATOR (TEXT)
-═══════════════════════════════════════════════════════ */
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+   BOTTOM-CENTER  â€”  SCROLL INDICATOR (TEXT)
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 #scroll-indicator {
   display: none;
   /* removed from hero */
 }
 
 
-/* ═══════════════════════════════════════════════════════
-   MID-RIGHT  —  LET'S TALK  (rounded pill button)
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+   MID-RIGHT  â€”  LET'S TALK  (rounded pill button)
    Placed below description, right-aligned to grid edge.
-═══════════════════════════════════════════════════════ */
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 #cta-container {
   position: absolute;
   top: 50%;
@@ -775,11 +775,11 @@ html.dark .toggle-circle {
 }
 
 
-/* ═══════════════════════════════════════════════════════
-   BOTTOM  —  SPLIT LARGE TYPOGRAPHY
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+   BOTTOM  â€”  SPLIT LARGE TYPOGRAPHY
    CHRL bottom-left / STUDIO bottom-right.
    Both locked to bottom: --g-bottom.
-═══════════════════════════════════════════════════════ */
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 #studio-left,
 #studio-right {
   position: absolute;
@@ -805,10 +805,10 @@ html.dark .toggle-circle {
 }
 
 
-/* ═══════════════════════════════════════════════════════
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
    CANVAS ELEMENT REVEALS
    Staggered fade-up per element after loader exits.
-═══════════════════════════════════════════════════════ */
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 #top-left,
 #top-nav,
 #desc,
@@ -864,16 +864,16 @@ html.dark .toggle-circle {
   }
 }
 
-/* For elements with complex transforms (desc, cta) — only fade, no translateY */
+/* For elements with complex transforms (desc, cta) â€” only fade, no translateY */
 @keyframes reveal-fade {
   to {
     opacity: 1;
   }
 }
 
-/* ═══════════════════════════════════════════════════════
-   PORTFOLIO HUB — EDITORIAL PANELS
-═══════════════════════════════════════════════════════ */
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+   PORTFOLIO HUB â€” EDITORIAL PANELS
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 #hub {
   position: relative;
   width: 100%;
@@ -886,7 +886,7 @@ html.dark .toggle-circle {
   width: 100%;
 }
 
-/* ── Base Panel ── */
+/* â”€â”€ Base Panel â”€â”€ */
 .hub-panel {
   position: relative;
   display: block;
@@ -903,7 +903,7 @@ html.dark .toggle-circle {
   border-bottom: 1px solid var(--glass-border);
 }
 
-/* ── Soft gradient background layer ── */
+/* â”€â”€ Soft gradient background layer â”€â”€ */
 .hub-panel__bg {
   position: absolute;
   inset: 0;
@@ -913,11 +913,11 @@ html.dark .toggle-circle {
 }
 
 html.dark .hub-panel__bg {
-  /* Subtle neutral dark/silver tint in dark mode — no blue */
+  /* Subtle neutral dark/silver tint in dark mode â€” no blue */
   background: linear-gradient(120deg, rgba(255, 255, 255, 0.03) 0%, transparent 60%);
 }
 
-/* ── Inner layout ── */
+/* â”€â”€ Inner layout â”€â”€ */
 .hub-panel__inner {
   position: relative;
   height: 100%;
@@ -928,7 +928,7 @@ html.dark .hub-panel__bg {
   z-index: 1;
 }
 
-/* ── Index number ── */
+/* â”€â”€ Index number â”€â”€ */
 .hub-panel__index {
   font-size: clamp(0.65rem, 0.8vw, 0.75rem);
   font-weight: 500;
@@ -946,7 +946,7 @@ html.dark .hub-panel__bg {
   gap: 10px;
 }
 
-/* ── Title ── */
+/* â”€â”€ Title â”€â”€ */
 .hub-panel__title {
   font-size: clamp(2.2rem, 4vw, 5rem);
   font-weight: 700;
@@ -960,7 +960,7 @@ html.dark .hub-panel__bg {
   will-change: transform, letter-spacing;
 }
 
-/* ── Subtext ── */
+/* â”€â”€ Subtext â”€â”€ */
 .hub-panel__sub {
   font-size: clamp(0.75rem, 1vw, 0.9rem);
   font-weight: 400;
@@ -973,7 +973,7 @@ html.dark .hub-panel__bg {
     transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.05s;
 }
 
-/* ── Arrow ── */
+/* â”€â”€ Arrow â”€â”€ */
 .hub-panel__arrow {
   font-size: clamp(1.4rem, 2.5vw, 2.2rem);
   color: var(--black);
@@ -985,7 +985,7 @@ html.dark .hub-panel__bg {
   flex-shrink: 0;
 }
 
-/* ── HOVER STATE ── */
+/* â”€â”€ HOVER STATE â”€â”€ */
 .hub-panel:hover {
   height: 320px;
 }
@@ -1017,7 +1017,7 @@ html.dark .hub-panel:hover {
   transform: translate(0, 0);
 }
 
-/* ── Sibling dim on hover ── */
+/* â”€â”€ Sibling dim on hover â”€â”€ */
 .hub-panels:hover .hub-panel {
   opacity: 0.45;
 }
@@ -1026,7 +1026,7 @@ html.dark .hub-panel:hover {
   opacity: 1;
 }
 
-/* ── Responsive ── */
+/* â”€â”€ Responsive â”€â”€ */
 @media (max-width: 640px) {
   .hub-panel {
     height: 180px;
@@ -1042,12 +1042,12 @@ html.dark .hub-panel:hover {
   }
 }
 
-/* ── Hub section spacing polish ── */
+/* â”€â”€ Hub section spacing polish â”€â”€ */
 #hub {
   scroll-margin-top: 100px;
 }
 
-/* ── Hub panel hover polish ── */
+/* â”€â”€ Hub panel hover polish â”€â”€ */
 .hub-panel__inner {
   transition: gap 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -1056,7 +1056,7 @@ html.dark .hub-panel:hover {
   gap: 56px;
 }
 
-/* ── Giant button hover polish ── */
+/* â”€â”€ Giant button hover polish â”€â”€ */
 #giant-btn {
   position: relative;
 }
@@ -1077,9 +1077,9 @@ html.dark .hub-panel:hover {
   width: 60%;
 }
 
-/* ═══════════════════════════════════════════════════════
-   SCROLL SEQUENCE — Cinematic Narrator + Dust Particles
-═══════════════════════════════════════════════════════ */
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+   SCROLL SEQUENCE â€” Cinematic Narrator + Dust Particles
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 #scroll-sequence {
   position: relative;
   width: 100%;
@@ -1099,7 +1099,7 @@ html.dark .hub-panel:hover {
   transition: background 0.4s ease;
 }
 
-/* Dust canvas — fills the sticky container */
+/* Dust canvas â€” fills the sticky container */
 #dust-canvas {
   position: absolute;
   inset: 0;
@@ -1129,9 +1129,9 @@ html.dark .hub-panel:hover {
   background-clip: text;
 }
 
-/* ═══════════════════════════════════════════════════════
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
    GIANT CTA
-═══════════════════════════════════════════════════════ */
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 #work-cta {
   width: 100%;
   padding: 180px var(--g-edge) 80px var(--g-edge);
@@ -1170,9 +1170,9 @@ html.dark #giant-btn:hover {
   text-shadow: 0 0 60px rgba(255, 255, 255, 0.08), 0 0 150px rgba(255, 255, 255, 0.04);
 }
 
-/* ═══════════════════════════════════════════════════════
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
    PORTFOLIO HUB (Scrollable Area)
-═══════════════════════════════════════════════════════ */
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 #hub {
   position: relative;
   width: 100%;
@@ -1192,7 +1192,7 @@ html.dark #giant-btn:hover {
   margin-bottom: 64px;
 }
 
-/* ── HUB CARDS GRID ── */
+/* â”€â”€ HUB CARDS GRID â”€â”€ */
 .hub-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -1254,7 +1254,7 @@ html.dark #giant-btn:hover {
   line-height: 1.6;
 }
 
-/* ── PROJECT ARCHIVE GRID ── */
+/* â”€â”€ PROJECT ARCHIVE GRID â”€â”€ */
 .project-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -1319,7 +1319,7 @@ html.dark #giant-btn:hover {
   background: #eee;
 }
 
-/* ── ABOUT ── */
+/* â”€â”€ ABOUT â”€â”€ */
 .about-text {
   font-size: clamp(1.8rem, 3.5vw, 3.5rem);
   font-weight: 500;
@@ -1331,8 +1331,8 @@ html.dark #giant-btn:hover {
   -webkit-text-fill-color: transparent;
 }
 
-/* ── CONTACT ── */
-/* ── ABOUT PAGE SPECIFICS ── */
+/* â”€â”€ CONTACT â”€â”€ */
+/* â”€â”€ ABOUT PAGE SPECIFICS â”€â”€ */
 .about-hero {
   text-align: center;
   margin-bottom: 120px;
@@ -1436,9 +1436,9 @@ html.dark #giant-btn:hover {
   letter-spacing: 0.02em;
 }
 
-/* ═══════════════════════════════════════════════════════
-   CONTACT PAGE — Premium Editorial
-═══════════════════════════════════════════════════════ */
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+   CONTACT PAGE â€” Premium Editorial
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 .contact-page-wrap {
   width: 100%;
   min-height: 100vh;
@@ -1492,7 +1492,7 @@ html.dark #giant-btn:hover {
   line-height: 1.7;
 }
 
-/* Horizontal rule sections — ICOMAT-style */
+/* Horizontal rule sections â€” ICOMAT-style */
 .contact-sections {
   display: flex;
   flex-direction: column;
@@ -1603,9 +1603,9 @@ html.dark #giant-btn:hover {
   }
 }
 
-/* ═══════════════════════════════════════════════════════
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
    MODAL GALLERY
-═══════════════════════════════════════════════════════ */
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 .modal {
   position: fixed;
   inset: 0;
@@ -1825,9 +1825,9 @@ html.dark #giant-btn:hover {
   }
 }
 
-/* ═══════════════════════════════════════════════════════
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
    SECTION SUBTITLE
-═══════════════════════════════════════════════════════ */
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 .section-subtitle {
   font-size: clamp(1rem, 1.2vw, 1.2rem);
   font-weight: 300;
@@ -1839,9 +1839,9 @@ html.dark #giant-btn:hover {
   line-height: 1.6;
 }
 
-/* ═══════════════════════════════════════════════════════
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
    PROJECT ITEM INTERACTIONS
-═══════════════════════════════════════════════════════ */
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 .project-item {
   cursor: pointer;
 }
@@ -1863,9 +1863,9 @@ html.dark #giant-btn:hover {
   opacity: 0.7;
 }
 
-/* ═══════════════════════════════════════════════════════
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
    ABOUT ME 3D FOLDER CONCEPT
-═══════════════════════════════════════════════════════ */
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 .folder-container {
   display: flex;
   flex-direction: column;
@@ -1991,7 +1991,7 @@ html.dark .is-open .folder-back {
   border-radius: 8px;
 }
 
-/* ── FOLDER INSTRUCTION TEXT ── */
+/* â”€â”€ FOLDER INSTRUCTION TEXT â”€â”€ */
 .folder-instruction {
   font-family: 'Helvetica', sans-serif;
   font-size: clamp(0.7rem, 1vw, 0.85rem);
@@ -2009,10 +2009,10 @@ html.dark .is-open .folder-back {
   opacity: 1;
 }
 
-/* ── FOLDER FRONT FLAP ── */
+/* â”€â”€ FOLDER FRONT FLAP â”€â”€ */
 /* Inherits display swapping from Hard Snap logic above */
 
-/* ── INNER PAPER CONTENT ── */
+/* â”€â”€ INNER PAPER CONTENT â”€â”€ */
 .folder-paper {
   overflow-x: hidden;
   overflow-y: auto;
@@ -2137,18 +2137,120 @@ html.dark .glass-panel:hover {
   opacity: 0.5;
   margin-bottom: 8px;
 }
- / *   P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%
-       M O B I L E   R E S P O N S I V E N E S S   O V E R R I D E S 
- P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%P%  * / 
- @ m e d i a   ( m a x - w i d t h :   7 6 8 p x )   { 
-     / *   A B O U T   F O L D E R :   F u l l   W i d t h   S t a c k   * / 
-     . f o l d e r - c o n t a i n e r   {   p a d d i n g :   2 0 p x   0 ;   } 
-     . f o l d e r - w r a p p e r   {   w i d t h :   1 0 0 v w ;   h e i g h t :   8 5 v h ;   a s p e c t - r a t i o :   a u t o ;   b o r d e r - r a d i u s :   0 ;   } 
-     . f o l d e r - b a c k   i m g ,   . f o l d e r - f r o n t   i m g   {   o b j e c t - f i t :   c o v e r ;   b o r d e r - r a d i u s :   0 ;   } 
-     . f o l d e r - p a p e r   {   t o p :   4 % ;   b o t t o m :   4 % ;   l e f t :   4 % ;   r i g h t :   4 % ;   } 
-     . g l a s s - p a n e l   {   w i d t h :   1 0 0 % ;   m a x - w i d t h :   1 0 0 % ;   p a d d i n g :   2 4 p x ;   } 
-     . g l a s s - p a n e l : n t h - c h i l d ( n )   {   t r a n s f o r m :   r o t a t e ( 0 )   t r a n s l a t e X ( 0 )   ! i m p o r t a n t ;   } 
-     . g l a s s - p a n e l   p   {   f o n t - s i z e :   1 . 0 5 r e m ;   l i n e - h e i g h t :   1 . 6 ;   } 
- } 
-  
- 
+
+/* ═══════════════════════════════════════════════════════
+   MOBILE RESPONSIVENESS OVERRIDES
+═══════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  :root {
+    --g-edge: 24px;
+    --g-top: 56px;
+    --g-bottom: 48px;
+    --orb-d: 18px; /* Proportional branding */
+    --big-sz: 2.1rem; /* Scaled hero text */
+  }
+
+  /* Remove Desktop-Only UI Artifacts */
+  #custom-cursor,
+  .hero-cursor {
+    display: none !important;
+  }
+
+  body, html, a, button, .nav-item {
+    cursor: auto !important;
+  }
+
+  /* Compact Navigation Pill */
+  #top-nav {
+    top: 16px;
+    height: 40px;
+    padding: 2px;
+  }
+
+  .nav-item {
+    width: 64px;
+    font-size: 0.58rem;
+    letter-spacing: 0.1em;
+  }
+
+  /* Theme Toggle: Accessible & Non-Intrusive */
+  #theme-toggle {
+    top: 16px;
+    right: 16px;
+    width: 36px;
+    height: 36px;
+    transform: none !important;
+  }
+
+  .toggle-circle {
+    width: 12px;
+    height: 12px;
+  }
+
+  /* Header Branding */
+  #top-left {
+    top: 16px;
+    left: 16px;
+    gap: 8px;
+  }
+
+  #orb {
+    opacity: 0.6;
+    transform: scale(0.85);
+  }
+
+  .wm-chrl, .wm-stdio {
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+  }
+
+  /* Mobile Hierarchy Scaling */
+  .hero-typewriter-text, 
+  .hero-final-text {
+    font-size: 1.35rem;
+    white-space: normal;
+    line-height: 1.4;
+  }
+
+  .hub-panel__title {
+    font-size: 1.7rem;
+  }
+
+  .section-title {
+    font-size: 1.45rem;
+    margin-bottom: 18px;
+  }
+
+  /* About Section: Folder Adaptation */
+  .folder-wrapper { 
+    width: 100vw; 
+    height: 70vh; 
+    border-radius: 0; 
+  }
+  .folder-paper { 
+    top: 6%; bottom: 6%; left: 6%; right: 6%; 
+  }
+
+  .glass-panel { 
+    width: 90%; 
+    padding: 18px; 
+    margin: 8px auto;
+  }
+  .glass-panel:nth-child(n) { 
+    transform: none !important; 
+  }
+  .glass-panel p { 
+    font-size: 0.88rem; 
+  }
+
+  /* Performance/Visual Cleanup */
+  .glass-panel, #top-nav {
+    backdrop-filter: blur(8px);
+  }
+  
+  /* Prevent horizontal overflow from giant titles */
+  #studio-left, #studio-right {
+    font-size: 1.8rem;
+    bottom: 24px;
+  }
+}

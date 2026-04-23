@@ -413,7 +413,13 @@
     topLeft.addEventListener('mouseenter', () => topLeft.classList.add('hovered'));
     topLeft.addEventListener('mouseleave', () => topLeft.classList.remove('hovered'));
     // Touch: tap to toggle
-    topLeft.addEventListener('click', () => topLeft.classList.toggle('hovered'));
+    topLeft.addEventListener('click', (e) => {
+      topLeft.classList.toggle('hovered');
+      // If they didn't click exactly on the orb (which is already a link), redirect to home
+      if (!e.target.closest('#orb')) {
+        window.location.href = 'index.html';
+      }
+    });
   }
 
   /* ── HERO TYPEWRITER ─────────────────────────────────── */

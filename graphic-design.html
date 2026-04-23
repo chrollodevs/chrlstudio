@@ -229,13 +229,28 @@
             item.className = 'project-item';
             if (idx % 2 !== 0) item.style.marginTop = '80px';
 
-            item.innerHTML = `
-              <img class="project-img" src="${teaserImg}" alt="${project.label}" loading="lazy" />
-              <div class="project-meta">
-                <span class="card-title">${project.label}</span>
-                <span class="card-desc">${project.year}</span>
-              </div>
-            `;
+            const img = document.createElement('img');
+            img.className = 'project-img';
+            img.src = teaserImg;
+            img.alt = project.label;
+            img.loading = 'lazy';
+
+            const meta = document.createElement('div');
+            meta.className = 'project-meta';
+
+            const title = document.createElement('span');
+            title.className = 'card-title';
+            title.textContent = project.label;
+
+            const desc = document.createElement('span');
+            desc.className = 'card-desc';
+            desc.textContent = project.year;
+
+            meta.appendChild(title);
+            meta.appendChild(desc);
+
+            item.appendChild(img);
+            item.appendChild(meta);
 
             // Click to open modal
             item.addEventListener('click', () => openModal(project));
